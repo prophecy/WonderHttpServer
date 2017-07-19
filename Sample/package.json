@@ -1,0 +1,27 @@
+{
+  "name": "WonderHttpServer",
+  "description": "An HTTP server in the Wonderland",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "async": "latest",
+    "bluebird": "latest",
+    "body-parser": "latest",
+    "express": "latest",
+    "mongoose": "latest",
+    "uuid": "latest",
+    "socket.io": "latest",
+    "nodemailer": "latest",
+    "nodemailer-ses-transport": "latest",
+    "request": "latest",
+    "randomstring": "latest"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  }
+}
