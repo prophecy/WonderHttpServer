@@ -1,0 +1,13 @@
+{
+  "node.js": [
+    {
+      "command": "copy",
+      "src": "Sample/",
+      "dst": ""
+    },
+    {
+      "command": "exec",
+      "parm": "npm install --prefix ./wonder_modules/WonderHttpServer/Core/"
+    }
+  ]
+}
