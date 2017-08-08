@@ -38,11 +38,20 @@ exports.Update = function(req, res, next) {
                 return;
             }
 
+            if (req.auth == null)
+                req.auth = {};
+            
+            // Pass auth data to req
+            req.auth.user_id = res.data.user_id;
+            req.auth.token = token;
+            req.auth.timestamp = timestamp;
+
             if (res.data == null)
                 res.data = {};
 
             // Attach token
             res.data.token = token;
+            res.data.timestamp = timestamp;
 
             // Next node
             next();
@@ -95,10 +104,18 @@ exports.Authen = function(req, res, next) {
                 return;
             }
 
+            if (req.auth == null)
+                req.auth = {};
+            
+            // Pass auth data to req
+            req.auth.user_id = user.user_id;
+            req.auth.token = token;
+            req.auth.timestamp = user.timestamp;
+
             if (res.data == null)
                 res.data = {};
 
-            // Pass value
+            // Pass auth data to res
             res.data.user_id = user.user_id;
             res.data.token = token;
             res.data.timestamp = user.timestamp;

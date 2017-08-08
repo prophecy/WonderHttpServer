@@ -69,10 +69,16 @@ exports.Register = function(req, res, next) {
                         return;
                     }
 
+                    if (req.auth == null)
+                        req.auth = {};
+
+                    // Attach user_id to req
+                    req.auth.user_id = userId;
+
                     if (res.data == null)
                         res.data = {};
 
-                    // Attach user_id
+                    // Attach user_id to res
                     res.data.user_id = userId;
 
                     next();
@@ -119,9 +125,15 @@ exports.Login = function(req, res, next) {
                 return;
             }
 
+            if (req.auth == null)
+                req.auth = {};
+
+            // Attach user_id to req
+            req.auth.user_id = user.user_id;
+                
             if (res.data == null)
                 res.data = {};
-                
+
             // Pass user id
             res.data.user_id = user.user_id;
 
