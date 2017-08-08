@@ -71,13 +71,27 @@ var ComposeResponse = function(req, res, next) {
 }
 exports.ComposeResponse = ComposeResponse;
 
+var RouteTerminator = function(req, res, next) {
+
+    if (res.error != undefined) {
+
+        ComposeResponse(req, res, next);
+    }
+    else {
+        next();
+    }
+}
+
 exports.CreateSugarRoute = function(route) {
 
     var sugarRoute = [];
     sugarRoute.push(ComposeHeader);
 
-    for (var i=0; i<route.length; ++i)
+    for (var i=0; i<route.length; ++i) {
+
         sugarRoute.push(route[i]);
+        sugarRoute.push(RouteTerminator);
+    }
     
     sugarRoute.push(ComposeResponse);
 
