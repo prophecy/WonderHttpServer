@@ -98,9 +98,15 @@ exports.CreateSugarRoute = function(route) {
     return sugarRoute;
 }
 
-exports.GenerateUserId = function() {
+exports.GenerateId = function() {
 
     return uuid.v4().replace(/-/g, "");
+}
+
+// Todo: Deprecate this
+exports.GenerateUserId = function() {
+
+    return GenerateId();
 }
 
 exports.GenerateToken = function(callback) {
@@ -114,7 +120,7 @@ exports.OmitUserField = function(user) {
     user.password = undefined;
     user.__v = undefined;
     user.token = undefined;
-
+    
     return user;
 }
 
@@ -169,4 +175,12 @@ exports.UpdateElementInArray = function(array, primaryKey, key, value, isUpsert)
     }
 
     return newArray;
+}
+
+exports.MergeObject = function (obj1,obj2){
+
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
 }
