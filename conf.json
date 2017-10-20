@@ -8,6 +8,11 @@
     {
       "command": "exec",
       "parm": "npm install --prefix ./wonder_modules/WonderHttpServer/Core/"
+    },
+    {
+      "command": "copy",
+      "src": "Core/node_modules/",
+      "dst": "node_modules"
     }
   ]
 }
