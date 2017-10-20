@@ -31,3 +31,9 @@ wpm install
 wpm run WonderHttpServer
 ```
 7. You will have new directories; "wonder_modules" and WonderHttpSample (This is your workspace, and try to start and run Node.js code here)
+8. Type
+```
+cd ./WonderHttpSample
+node Application.js
+```
+9. You already have HTTP server !!
