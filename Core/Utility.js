@@ -98,12 +98,12 @@ exports.CreateSugarRoute = function(route) {
     return sugarRoute;
 }
 
-exports.GenerateId = function() {
+var GenerateId = function() {
 
     return uuid.v4().replace(/-/g, "");
 }
+exports.GenerateId = GenerateId;
 
-// Todo: Deprecate this
 exports.GenerateUserId = function() {
 
     return GenerateId();
