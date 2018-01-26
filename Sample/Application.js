@@ -3,8 +3,7 @@
 /*****************************************************************************************/
 
 // Setup path
-var rootPath = "../wonder_modules/WonderHttpServer/Core/";
-var WonderPath = require(rootPath + "Utility").SetupWonderPath(rootPath);
+var WonderPath = require("./WonderConf").GetWonderPath();
 
 // Require LIB package(s)
 var WonderHttpServer = require(WonderPath("WonderHttpServer"));

@@ -2,8 +2,7 @@
 //    MY OWN SOURCE CODE IS HERE .... ... .. .  .   .
 /*****************************************************************************************/
 
-var rootPath = "../wonder_modules/WonderHttpServer/Core/";
-var WonderPath = require(rootPath + "Utility").SetupWonderPath(rootPath);
+var WonderPath = require("./WonderConf").GetWonderPath();
 
 var WonderHttpServer = require(WonderPath("WonderHttpServer"));
 var mongoose = WonderHttpServer.GetMongoose();
