@@ -1,7 +1,7 @@
 {
-  "name": "TestWonderHttpServerModule",
-  "description": "An HTTP server in the Wonderland",
-  "version": "0.1.2",
+  "name": "CoreWonderHttpServer",
+  "description": "Core Wonder HTTP Server is high ready-to-run-reusable library which can be Wonderland project's foundation",
+  "version": "0.1.5",
   "private": true,
   "dependencies": {
     "async": "latest",
