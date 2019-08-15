@@ -8,7 +8,7 @@ var mongoose = require("mongoose");
 var app = express();
 module.exports = app; // for testing
 
-module.exports.Start = function(Configurations, onBindApi) {
+module.exports.Start = function(configurations, onBindApi) {
 
   app.set("views", __dirname + "/views");
   app.set("view engine", "jade");
@@ -19,7 +19,7 @@ module.exports.Start = function(Configurations, onBindApi) {
   onBindApi(app);
 
   // Start MongoDB and HttpServer
-  require("./ServerInitializer").StartServer(app, Configurations);
+  require("./ServerInitializer").StartServer(app, configurations);
 }
 
 // Export mongoose

@@ -1,24 +1,27 @@
 var mongoose = require("mongoose");
 var bluebird = require('bluebird');
 
-var isStartMongoDB = true;
-
 // ---------------------------------------------------------------------------
 // Public method
-exports.StartServer = function(app, Configurations) {
+exports.StartServer = function(app, configurations) {
     
+    var isStartMongoDB = true;
+
+    if (configurations.isStartMongoDB != undefined && configurations.isStartMongoDB == false)
+        isStartMongoDB = false;
+
     if (isStartMongoDB) {
-        StartMongoDBConnection(Configurations.dbDevName, function(err) {
+        StartMongoDBConnection(configurations.dbDevName, function(err) {
             if (err) {
                 console.log("MongoDB initialization failure, DO NOT start server!");
             }
             else {
-                StartHtttpServer(app, Configurations.apiServerDevPort);
+                StartHtttpServer(app, configurations.apiServerDevPort);
             }
         });
     }
     else {
-        StartHtttpServer(app, Configurations.apiServerDevPort);
+        StartHtttpServer(app, configurations.apiServerDevPort);
     }
 }
 
